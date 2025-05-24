@@ -14,13 +14,13 @@ public class AreaRettangolo {
 
 		Scanner input = new Scanner(System.in);
 		
-		
+		//l'utente inserisce la base del rettancoglo 
 		System.out.println("inserisci la base del rettangolo ");
 		double base = input.nextDouble();
-		
+		//l'utente inserisce l'altezza del rettangolo
 		System.out.println("inserisci la altezza del rettangolo ");
 		double altezza = input.nextDouble();
-
+                //calcolo dell'area del rettangolo : base * altezza
 		double area = base * altezza;
 		System.out.println( "l'area del rettangolo è : " + area);
 
