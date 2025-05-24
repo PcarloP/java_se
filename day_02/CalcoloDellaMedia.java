@@ -9,10 +9,6 @@ public class CalcoloDellaMedia {
 	public static void main(String[] args) {
 	
 		Scanner input = new Scanner(System.in);
-		
-    
-	
-	
 	
 		 System.out.println( "inserisci il primo numero" );
 	     int  numero1 = input.nextInt();
