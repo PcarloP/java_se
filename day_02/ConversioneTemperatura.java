@@ -21,7 +21,7 @@ public class ConversioneTemperatura {
         double fahrenheit = celsius * 9.0 / 5.0 + 32;
 
         
-        System.out.println( celsius + " gradi Celsius corrispondono a " + fahrenheit + " gradi Fahrenheit." );
+        System.out.println( celsius + " gradi Celsius corrispondono a " + fahrenheit + " gradi Fahrenheit" );
 
         input.close();
     }
