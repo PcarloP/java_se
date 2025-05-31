@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class NumeroParole {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub		
+			
 		Scanner scanner = new Scanner(System.in);
 
 		
@@ -26,11 +26,8 @@ public class NumeroParole {
         System.out.println("Numero di parole: " + numeroParole);
         
         scanner.close();
-    
-		
-		
-		
-		
+
+
 	}
 
 }
