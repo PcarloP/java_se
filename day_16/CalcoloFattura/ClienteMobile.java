@@ -1,0 +1,29 @@
+package day_16.CalcoloFattura;
+
+public class ClienteMobile extends Cliente {
+
+	private int giga ;
+
+	public ClienteMobile() {
+		super();
+	}
+
+	public ClienteMobile(String cf, String nome, String cognome , int giga) {
+		super(cf, nome, cognome);
+		this.giga = giga;
+	}
+
+	public int getGiga() {
+		return giga;
+	}
+
+	public void setGiga(int giga) {
+		this.giga = giga;
+	}
+
+	@Override
+	public String toString() {
+		return "ClienteMobile "+ super.toString() +" giga= " + this.giga + "]";
+	}
+			
+}
