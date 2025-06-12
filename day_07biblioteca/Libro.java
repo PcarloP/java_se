@@ -1,20 +1,32 @@
-package day_07bibbioteca;
+package day_07biblioteca;
+
+import java.util.HashMap;
 
 public class Libro {
-	private String titolo;
-	private Abbonato abbonato;;
-	private Data dataScadenza;
+	public String isbn;
+	public String titolo;
+	public HashMap<String, Boolean> autori;
+	public Editore casaeditrice;
 
 	public Libro() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public Libro(String titolo, Abbonato abbonato, Data dataScadenza) {
+	public Libro(String isbn, String titolo, Object object, Editore casaeditrice) {
 		super();
-
+		this.isbn = isbn;
 		this.titolo = titolo;
-		this.abbonato = abbonato;
-		this.dataScadenza = dataScadenza;
+		this.autori = (HashMap<String, Boolean>)object;
+		this.casaeditrice = casaeditrice;
+	}
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 
 	public String getTitolo() {
@@ -25,20 +37,26 @@ public class Libro {
 		this.titolo = titolo;
 	}
 
-	public Abbonato getAbbonato() {
-		return abbonato;
+	public HashMap<String, Boolean> getAutori() {
+		return autori;
 	}
 
-	public void setAbbonato(Abbonato abbonato) {
-		this.abbonato = abbonato;
+	public void setAutori(HashMap<String, Boolean> autori) {
+		this.autori = autori;
 	}
 
-	public Data getDataScadenza() {
-		return dataScadenza;
+	public Editore getCasaeditrice() {
+		return casaeditrice;
 	}
 
-	public void setDataScadenza(Data dataScadenza) {
-		this.dataScadenza = dataScadenza;
-	};
+	public void setCasaeditrice(Editore casaeditrice) {
+		this.casaeditrice = casaeditrice;
+	}
+
+	@Override
+	public String toString() {
+		return "Libro [isbn=" + this.isbn + ", titolo=" + this.titolo + ", autori=" + this.autori + ", casaeditrice="
+				+ this.casaeditrice + "]";
+	}
 
 }

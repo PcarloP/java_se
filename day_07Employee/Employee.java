@@ -6,21 +6,17 @@ public class Employee {
 	private String nome;
 	private double stipendio;
 	
-	//costruttore di default
 	public Employee() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-    //costruttore parametrico
 	public Employee(String codiceFiscale, String nome, double stipendio) {
 		super();
 		this.codiceFiscale = codiceFiscale;
 		this.nome = nome;
 		this.stipendio = stipendio;
 	}
-
-    //gat e set per accedere alle proprieta della classe 
+ 
 	public String getCodiceFiscale() {
 		return codiceFiscale;
 	}
@@ -51,7 +47,7 @@ public class Employee {
 	}
 
 
-	@Override //metodo per stampare le proprietà della classe instanziata
+	@Override 
 	public String toString() {
 		return "Employee [codiceFiscale=" + codiceFiscale + ", nome=" + nome + ", stipendio=" + stipendio + "]";
 	}

@@ -1,4 +1,4 @@
-package day_07bibbioteca;
+package day_07biblioteca;
 
 public class Data {
 

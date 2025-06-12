@@ -13,24 +13,19 @@ public class Main {
 		
 		Veicolo[] veicoli = new Veicolo[6];
 
-        veicoli[0] = new Auto("Fiat", "Panda", "AA123BB", 4, 5);
-        veicoli[1] = new Camion("Iveco", "Eurocargo", "CC456DD", 2, 12000);
+		veicoli[0] = new Veicolo("Toyota", "Yaris", "AB123CD", 5);
+        veicoli[1] = new Auto("Fiat", "Panda", "EF456GH", 4, 5);
         veicoli[2] = new Camion("Iveco", "Eurocargo", "IJ789KL", 2, 12000);
         veicoli[3] = new Auto("Volkswagen", "Golf", "MN012OP", 5, 3);
         veicoli[4] = new Camion("Mercedes", "Actros", "QR345ST", 2, 18000);
         veicoli[5] = new Veicolo("Ford", "Focus", "UV678WX", 5);
 
+
         for (Veicolo v : veicoli) {
             if (v != null) {
-                System.out.println(v);
+                System.out.println(   v  );
             }
         }
-		
-		
-		
-		
-		
-		
 		
 		
 	}

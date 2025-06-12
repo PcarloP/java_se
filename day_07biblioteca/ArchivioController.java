@@ -1,80 +1,84 @@
-package day_07bibbioteca;
+package day_07biblioteca;
 
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 
-public class Archivio {
-
-	private ArrayList<Abbonato> abbonati;
-	private ArrayList<Libro> libri;
-	private Data dataAttuale;
-
-	public Archivio(Data dataIniziale) {
-		this.abbonati = new ArrayList<>();
-		this.libri = new ArrayList<>();
-		this.dataAttuale = dataIniziale;
-	}
-
-	public void nuovoLibro(String unTitolo) {
-		Libro libro = new Libro(unTitolo, null, null);
-		libri.add(libro);
-	}
-
-	// Aggiunge un nuovo abbonato alla lista
-	public void nuovoUtente(String unNome, String unCognome) {
-		Abbonato abbonato = new Abbonato(unNome, unCognome);
-		abbonati.add(abbonato);
-	}
-
-	// Cerca un abbonato e restituisce l'indice (o -1 se non trovato)
-	public int trovaUtente(String unNome, String unCognome) {
-		for (int i = 0; i < abbonati.size(); i++) {
-			Abbonato abb = abbonati.get(i);
-			if (abb.getNome().equals(unNome) && abb.getCognome().equals(unCognome)) {
-				return i;
+public class ArchivioController {
+	
+	private static Prestito[] prestiti = new Prestito[100];
+	private static Libro[] libri = new Libro[100];
+	private static Abbonato[] abbonati = new Abbonato[100];
+	public static String nuovoLibro(Libro libro) {
+		
+		for(int i = 0; i<libri.length; i++) {
+			if(libri[i]==null) {
+				libri[i]=libro;
+				return "Libro inserito con successo";
 			}
 		}
-		return -1;
+		return "Database pieno, non e stato possibile inserire il nuovo libro";
 	}
-
-	// Calcola la data di scadenza aggiungendo 30 giorni alla data attuale
-	public Data scadenza(Data date) {
-		Data nuova = new Data(date.getDay(), date.getMonth(), date.getYear());
-		for (int i = 0; i < 30; i++) {
-			nuova.nextDay();
+	
+	public static String nuovoAbbonato(Abbonato abbonato) {
+		
+		for(int i = 0; i<abbonati.length; i++) {
+			if(abbonati[i]==null) {
+				abbonati[i]=abbonato;
+				return "Utente inserito con successo";
+			}
 		}
-		return nuova;
+		return "Database pieno, non e stato possibile inserire il nuovo Utente";
 	}
-
-	// Presta un libro a un utente, se disponibile
-	public int presta(Libro unLibro, Abbonato unUtente) {
-		if (unLibro.getAbbonato() != null) {
-			return -1; // Libro già prestato
+	public static String trovaAbbonato(Abbonato abbonato) {
+		
+		for(int i = 0; i<abbonati.length; i++) {
+			if(abbonati[i].equals(abbonato)) {
+				return "Utente presente in anagrafica";
+			}
 		}
-		Data scadenza = scadenza(dataAttuale);
-		unLibro.setAbbonato(unUtente);
-		unLibro.setDataScadenza(scadenza);
-		return 0; // Prestito avvenuto
+		//nuovoAbbonato(abbonato);
+		return "Utente non presente in anagrafica";
 	}
-
-	// Avanza la data di un giorno
-	public void aggiorna() {
-		dataAttuale.nextDay();
+	//Abbonato abbonato, Libro libro, LocalDateTime dataPrestito
+	public static String prestito (Abbonato abbonato, Libro libro, LocalDateTime dataPrestito) {
+		Prestito prestito = new Prestito (abbonato, libro, dataPrestito);
+		
+		for(int i = 0; i<prestiti.length; i++) {
+			if(prestiti[i]!= null && prestiti[i].getLibro()!= null && prestiti[i].getLibro().getIsbn()!= null && prestiti[i].getLibro().getIsbn()==libro.getIsbn()) {
+				return "Libro gia in prestito";
+			}
+		}
+		for(int i = 0; i<prestiti.length; i++) {
+			if(prestiti[i]==null) {
+					prestiti[i]=prestito;
+					return "Prestito effettuato con successo: " + libro.toString();
+				}
+			}
+		return "impossibile effettuare il prestito";
 	}
-
-	// Conta quanti libri sono prestati a un determinato abbonato
-	public int numLibri(Abbonato unAbb) {
+	
+	public static String restituzione (Abbonato abbonato, Libro libro) {
+		if(abbonato!= null && libro!= null) {
+			for(int i = 0; i<prestiti.length; i++) {
+				if(prestiti[i].getAbbonato().getCf()==abbonato.getCf() && prestiti[i].getLibro().getIsbn()==libro.getIsbn()) {
+					prestiti[i]=null;
+					return "Prestito chiuso" + libro.toString();
+				}
+			}
+		}
+		return "Prestito non trovato";
+	}
+	public static int libriInPrestito() {
 		int count = 0;
-		for (Libro libro : libri) {
-			if (libro.getAbbonato() != null && libro.getAbbonato().getNome().equals(unAbb.getNome())
-					&& libro.getAbbonato().getCognome().equals(unAbb.getCognome())) {
+	//	for(Prestito prestiti: prestiti) {
+	//		if (prestiti!= null) {
+	//			count++;
+	//		}
+	//	}
+		for (int i = 0; i<prestiti.length; i++) {
+			if(prestiti[i]!= null) {
 				count++;
 			}
 		}
 		return count;
 	}
-
-	public Data getDataAttuale() {
-		return dataAttuale;
-	}
-
 }
