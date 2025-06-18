@@ -17,9 +17,9 @@ public class Main {
 		// save();
 		// update();
 		// findById(2);
-		// findAll();
-		findByNome("Ylenia");
-		findByCognome("Lombardi");
+		findAll();
+		// findByNome("Ylenia");
+		// findByCognome("Lombardi");
 		// count();
 		// findByCF("CF1");
 		// delete(1);
@@ -32,7 +32,7 @@ public class Main {
 
 			System.out.println("=== Save ===");
 			Persona persona = new Persona();
-			persona.setCF("CF1");
+			persona.setCF("CF4");
 			persona.setNome("Fortunato");
 			persona.setCognome("Fortunino");
 			persona.setDataNascita(LocalDateTime.of(2000, 1, 1, 0, 0, 1));
@@ -147,7 +147,7 @@ public class Main {
 	}
 
 	private static List<Persona> findByCognome(String cognome) {
-		
+
 		List<Persona> persone = null;
 		try {
 			System.out.println("=== Find By Cognome ===");

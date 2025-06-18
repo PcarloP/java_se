@@ -65,7 +65,7 @@ public class Persona {
 	@Override
 	public String toString() {
 		return "Persona{" + "id=" + this.id + ", CF='" + this.CF + '\'' + ", nome='" + this.nome + '\'' + ", cognome='" + this.cognome
-				+ '\'' + ", dataNascita= " + this.dataNascita + '}'+ "/n";
+				+ '\'' + ", dataNascita= " + this.dataNascita + '}'+ "\n";
 	}
 
 }
