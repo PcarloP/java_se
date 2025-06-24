@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ricerca per id </title>
+</head>
+<body>
+
+
+<h1>Ricerca Utente per ID</h1>
+<form action="<%=request.getContextPath() + "/findById"%>" method="get">
+    <div class="form-group">
+        <label for="id">Inserisci ID utente:</label>
+        <input type="number" name="id" id="id" required>
+    </div>
+    <button type="submit">Cerca</button>
+</form>
+
+
+
+</body>
+</html>

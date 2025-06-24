@@ -1,0 +1,36 @@
+package day_16.CalcoloFattura;
+
+import java.math.BigDecimal;
+
+public class FatturaController extends Cliente {
+
+	public static void CalcoloFattura(Cliente cliente) {
+
+	    // Controllo se il cliente è un ClienteLuce
+		if (cliente instanceof ClienteLuce) {
+			ClienteLuce clienteLuce = (ClienteLuce) cliente;
+			// Se ha consumato meno di 300 kWh
+			if (clienteLuce.getKwh() < 300) {
+				// imposta il prezzo a 0.25 
+				clienteLuce.setPrezzoKwh(new BigDecimal("0.25"));
+				// Se ha consumato tra 300 (compreso) e 700 (escluso) kWh	
+			} else if (clienteLuce.getKwh() >= 300 && clienteLuce.getKwh() < 700) {
+				clienteLuce.setPrezzoKwh(new BigDecimal("0.18"));
+				// Se ha consumato 700 kWh o più
+			} else {
+				clienteLuce.setPrezzoKwh(new BigDecimal("0.15"));
+			}
+			// calcolo il totale da pagare (vale per tutte le fasce)
+			clienteLuce
+					.setPrezzoDaPagare(BigDecimal.valueOf(clienteLuce.getKwh()).multiply(clienteLuce.getPrezzoKwh()));
+		}
+
+		
+		
+		
+		
+		
+		
+	}
+
+}

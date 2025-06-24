@@ -1,0 +1,26 @@
+package day_16.CalcoloFattura;
+
+import java.math.BigDecimal;
+
+public class FatturaController extends Cliente {
+
+	public static void  CalcoloFattura(Cliente cliente) {
+		
+		if( cliente instanceof ClienteLuce ) {			
+			ClienteLuce clienteLuce = (ClienteLuce) cliente ;
+			
+			if(clienteLuce.getKwh() < 300) {			
+			   clienteLuce.setPrezzoKwh(new BigDecimal ("0.25"));
+			   clienteLuce.setPrezzoDaPagare( BigDecimal.valueOf(clienteLuce.getKwh()).multiply(clienteLuce.getPrezzoKwh()));			
+			}	else if(clienteLuce.getKwh() >= 300 && clienteLuce.getKwh() < 700) {
+				
+			}
+		}
+		
+		
+		
+		
+		
+	}
+
+}

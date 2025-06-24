@@ -1,0 +1,98 @@
+package it.promimpresa.anagrafica.controllo;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.List;
+
+import it.promimpresa.anagrafica.modello.Persona;
+import it.promimpresa.anagrafica.persistenza.DAOException;
+import it.promimpresa.anagrafica.persistenza.persistenza.impl.PersonaDAOImpl;
+
+/**
+ * Servlet implementation class Update
+ */
+@WebServlet("/update")
+public class Update extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static PersonaDAOImpl personaDAO = new PersonaDAOImpl();
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Update() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		 String idParam = request.getParameter("id");
+
+		    try {
+		        if (idParam == null) {
+		            // Nessun ID, mostra lista persone
+		            List<Persona> persone = personaDAO.findAll();
+		            request.setAttribute("persone", persone);
+		            request.getRequestDispatcher("/updatesetter.jsp").forward(request, response);
+		        } else {
+		            // ID presente, mostra form per modifica persona specifica
+		            int id = Integer.parseInt(idParam);
+		            Persona persona = personaDAO.findById(id);
+
+		            if (persona != null) {
+		                request.setAttribute("persona", persona);
+		                request.getRequestDispatcher("/formupdate.jsp").forward(request, response);
+		            } else {
+		                request.setAttribute("messaggio", "Persona con ID " + id + " non trovata.");
+		                List<Persona> persone = personaDAO.findAll();
+		                request.setAttribute("persone", persone);
+		                request.getRequestDispatcher("/updatesetter.jsp").forward(request, response);
+		            }
+		        }
+		    } catch (Exception e) {
+		        request.setAttribute("messaggio", "Errore caricamento dati.");
+		        request.getRequestDispatcher("/dashboard.jsp").forward(request, response);
+		    }
+		}
+	    
+		
+	
+	
+	
+	
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		try {
+			System.out.println("=== Update ===");
+			Persona persona = personaDAO.findById(1);
+			if (persona != null) {
+				persona.setCF("New CF1");
+				persona.setNome("New Nome 1");
+				persona.setCognome(" New Cognome 1");
+				persona.setDataNascita(LocalDateTime.of(2000, 03, 05, 06, 05, 00));
+				personaDAO.update(persona);
+			}
+		} catch (DAOException e) {
+			System.out.println("Ops...si è verificato un errore!");
+		}
+	
+		
+		
+		
+		doGet(request, response);
+	}
+
+}

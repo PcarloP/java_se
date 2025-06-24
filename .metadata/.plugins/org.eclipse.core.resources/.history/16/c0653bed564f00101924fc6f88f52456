@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Benvenuto</title>
+</head>
+<body>
+
+    <h1>Benvenuto nella mia applicazione!</h1>
+    
+    <p>Clicca qui per iniziare:</p>
+    
+    <a href="form.jsp">Vai al form</a>
+
+</body>
+</html>
+<p>ody1 della dispatcher</p>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Titolo della pagina</title>
+</head>
+<body>
+
+    
+    
+    
+    <!-- Form Ricerca FindByNome con Metodo GET che Chiama la Servlet di Controllo    -->
+		<form action="<%=request.getContextPath() + "/findByNome"%>"
+			method="get">
+			<label>Nome:</label> <input type="text" name="/demodispatcher" required />
+			<button type="submit">Cerca per Nome</button>
+		</form>
+    
+    
+    
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+package day_16.CalcoloFattura;
+
+import java.math.BigDecimal;
+
+public class FatturaTest {
+
+	public static void main(String[] args) {
+
+		/*
+		 //costuttore default Cliente paoloRossi = new Cliente();
+		 paoloRossi.setCf("cf1"); paoloRossi.setNome("paolo");
+		 paoloRossi.setCognome("rossi"); paoloRossi.setPrezzoDaPagare(new BigDecimal
+		 ("1200.00"));
+		 
+		 System.out.println(paoloRossi.toString());
+		  
+		 //oggetto con costruttore parametrico Cliente gianlucaVacchi = new Cliente(
+		 " cf2","gianluca","vacchi","1300.00");
+		 System.out.println(gianlucaVacchi.toString());
+		
+		 ClienteLuce paolorossi = new ClienteLuce("cf2","paolo","rossi",80.00);
+		 System.out.println(paolorossi.toString());
+		 ClienteFisso marianeri = new ClienteFisso("cf3", "maria", "neri", ContrattoFisso.SPECIAL);
+
+		 System.out.println(marianeri.toString());
+
+		 FatturaController.CalcoloFattura(marianeri);
+	  */
+		
+	/*	
+		ClienteGas giovanniBianchi = new ClienteGas("f3"," giovanni","bianchi",50.00);
+		ClienteGas lucaVerdi = new ClienteGas("f4"," luca","verdi",80.00);
+		ClienteGas mariaRossi = new ClienteGas("f5"," maria","rossi",70.00);		
+		
+		FatturaController.CalcoloFattura(giovanniBianchi);
+		FatturaController.CalcoloFattura(lucaVerdi);
+		FatturaController.CalcoloFattura(mariaRossi);
+			
+		System.out.println(giovanniBianchi);
+		System.out.println(lucaVerdi);
+		System.out.println(mariaRossi);
+	*/	
+	
+		
+		
+			
+	/*	
+		ClienteGas rosarioangelo = new ClienteGas("f3"," rosario","angelo",40.00);
+		ClienteGas salvatorebelli = new ClienteGas("f4"," salvatore","belli",350.00);
+		ClienteGas mariaRosa = new ClienteGas("f5"," maria","rosa",801.00);		
+		
+		FatturaController.CalcoloFattura(rosarioangelo);
+		FatturaController.CalcoloFattura(salvatorebelli);
+		FatturaController.CalcoloFattura(mariaRosa);
+			
+		System.out.println(rosarioangelo);
+		System.out.println(salvatorebelli);
+		System.out.println(mariaRosa);
+	*/
+		
+		
+		
+		ClienteMobile angelobruni = new ClienteMobile("f3"," angelo","bruni",ContrattoFisso.SPECIAL);
+		ClienteMobile salvatorecascina = new ClienteMobile("f4"," salvatore","cascina",50);
+		ClienteMobile meryverdi = new ClienteMobile("f5"," mary","verdi",90);		
+				
+		FatturaController.CalcoloFattura(angelobruni);
+		FatturaController.CalcoloFattura(salvatorecascina);
+		FatturaController.CalcoloFattura(meryverdi);
+		
+		System.out.println(angelobruni);
+		System.out.println(salvatorecascina);
+		System.out.println(meryverdi);
+		
+
+		
+		
+		
+		
+	}
+
+}

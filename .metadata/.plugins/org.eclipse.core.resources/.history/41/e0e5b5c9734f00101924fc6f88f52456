@@ -1,0 +1,31 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Risultati Ricerca per Nome</title>
+</head>
+<body>
+
+<h1>Risultati Ricerca Per Nome: <%= request.getAttribute("nome") != null ? request.getAttribute("nome") : "" %></h1>
+
+<%
+    // Prendo la lista persone dall'attributo request
+    java.util.List persone = (java.util.List) request.getAttribute("persone");
+    if (persone != null && !persone.isEmpty()) {
+%>
+        <ul>
+        <% for (Object pObj : persone) {
+            it.promimpresa.anagrafica.modello.Persona persona = (it.promimpresa.anagrafica.modello.Persona) pObj;
+        %>
+            <li><%= persona.getNome() %> <%= persona.getCognome() %> - Codice Fiscale: <%= persona.getCF() %></li>
+        <% } %>
+        </ul>
+<%
+    } else {
+%>
+    <p>Nessun risultato trovato.</p>
+<%
+    }
+%>
+
+</body>
+</html>

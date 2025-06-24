@@ -1,0 +1,14 @@
+package day_16;
+
+public enum ContrattoFisso {
+	
+	STANDARD("st" , "standard " ), SPECIAL("sp","special "),SUPERSPECIAL("su" , "superspecial ");
+	
+	private String abbr;
+	private String valore:
+	
+	private
+	
+	
+	
+}

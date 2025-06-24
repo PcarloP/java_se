@@ -1,0 +1,27 @@
+/<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html> <html> <head> <meta charset="ISO-8859-1"> <title>Insert title here</title> </head> <body> <form action="<%=request.getContextPath() + "/servletform" %>" method="get"> <label for="name">Name:</label> <input type="text" id="name"name="name" required> <br> <label for="email">Email:</label> <input type="email" id="email" name="email" required><br> <label for="message">Message:</label> <textarea id="message" name="message" rows="5" required></textarea><br>
+	<div>
+		<input type="checkbox" id="terms" name="terms" required> 
+		<label for="terms">I agree to the <a href="/terms">terms and conditions</a>.</label><br>
+	</div>
+
+	<button type="submit">Send</button>
+</form>
+<hr>
+<form action="<%=request.getContextPath() + "/servletform" %>" method="get">
+	<label for="name">Name:</label> 
+	<input type="text" id="name" name="name" required> <br>
+	<label for="email">Email:</label> 
+	<input type="email" id="email" name="email" required><br>  
+	<label for="message">Message:</label>
+	<textarea id="message" name="message" rows="5" required></textarea><br>
+
+	<div>
+		<input type="checkbox" id="terms" name="terms" required> 
+		<label for="terms">I agree to the <a href="/terms">terms and conditions</a>.</label><br>
+	</div>
+
+	<button type="submit">Send</button>
+</form>
+</body> </html>

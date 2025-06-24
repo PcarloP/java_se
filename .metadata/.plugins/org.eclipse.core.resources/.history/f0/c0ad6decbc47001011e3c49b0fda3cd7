@@ -1,0 +1,54 @@
+package day_07biblioteca;
+
+import java.time.LocalDateTime;
+import java.util.HashMap;
+
+public class BibliotecaTest {
+
+    public static void main(String[] args) {
+        // Creo una mappa di autori per il primo libro
+        HashMap<String, Boolean> autori1 = new HashMap<>();
+        autori1.put("Ernest Hemingway", true);
+
+        // Creo l'editore
+        Editore mondadori = new Editore(
+            "12345678900",
+            "Arnoldo Mondadori Editore S.p.A.",
+            "Via Arnoldo Mondadori, 1, 20054 Segrate (MI), Italia"
+        );
+
+        // Creo il primo libro
+        Libro ilVecchioeIlMare = new Libro("isbn1", "Il vecchio e il mare", autori1, mondadori);
+        String risposta = ArchivioController.nuovoLibro(ilVecchioeIlMare);
+        System.out.println(risposta);
+
+        // Creo l'abbonato
+        Abbonato paoloRossi = new Abbonato("CF1", "Paolo", "Rossi");
+        String rispostaAbbonato = ArchivioController.nuovoAbbonato(paoloRossi);
+        System.out.println(rispostaAbbonato);
+
+        // Creo una nuova mappa autori per il secondo libro
+        HashMap<String, Boolean> autori2 = new HashMap<>();
+        autori2.put("Daniela Pellacani", true);
+        autori2.put("Stefano Verziaggi", false);
+
+        // Creo il secondo libro
+        Libro ilRaccontoRealisticoconilWRW = new Libro("isbn2", "ilRaccontoRealisticoconilWRW", autori2, mondadori);
+        String rispostaLibro2 = ArchivioController.nuovoLibro(ilRaccontoRealisticoconilWRW);
+        System.out.println(rispostaLibro2);
+
+        // Creo i prestiti
+        String rispostaPrestito1 = ArchivioController.prestito(paoloRossi, ilRaccontoRealisticoconilWRW, LocalDateTime.now());
+        String rispostaPrestito2 = ArchivioController.prestito(paoloRossi, ilVecchioeIlMare, LocalDateTime.now());
+        System.out.println(rispostaPrestito1);
+        System.out.println(rispostaPrestito2);
+
+        // Mostro il numero di libri in prestito
+        System.out.println("Numero libri in prestito: " + ArchivioController.libriInPrestito());
+
+        // Faccio una restituzione
+        String rispostaRestituzione1 = ArchivioController.restituzione(paoloRossi, ilRaccontoRealisticoconilWRW);
+        System.out.println(rispostaRestituzione1);
+        System.out.println("Numero libri in prestito: " + ArchivioController.libriInPrestito());
+    }
+}

@@ -1,0 +1,25 @@
+package day_14;
+
+import java.util.Scanner;
+
+public class VerificaLuhn {
+
+	public static void main(String[] args) {
+
+	    Scanner input = new Scanner(System.in);
+	    
+		System.out.println( "inserisci una seguenza numerica intera di 16 cifre" );
+		String numeri = input.nextLine(); 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

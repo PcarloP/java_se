@@ -1,0 +1,5 @@
+package day_17.JDBC.persistence;
+
+public class DAOExeption extends Exception {
+
+}

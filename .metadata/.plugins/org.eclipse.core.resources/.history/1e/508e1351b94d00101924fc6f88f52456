@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="<%= request.getContextPath() %>/dashboard.css">
+</head>
+
+<body>
+  <h1>Benvenuto nella dashboard</h1>
+  <h2>Operazioni disponibili:</h2>
+
+  <div class="forms-container">
+    <!-- chiamata alla servlet del metodo  findById -->
+    <form action="<%= request.getContextPath() + "/findById" %>" method="get">
+      <label>ID:</label>
+      <input type="text" name="id" required />
+      <button type="submit">Cerca per ID</button>
+    </form>
+
+<!-- chiamata alla servlet del metodo  findByNome -->
+    <form action="<%= request.getContextPath() + "/findByNome" %>" method="get">
+      <label>Nome:</label>
+      <input type="text" name="nome" required />
+      <button type="submit">Cerca per Nome</button>
+    </form>
+
+    <!-- chiamata alla servlet del metodo  findByCognome -->
+    <form action="<%= request.getContextPath() + "/findByCognome" %>" method="get">
+      <label>Cognome:</label>
+      <input type="text" name="cognome" required />
+      <button type="submit">Cerca per Cognome</button>
+    </form>
+
+    <!-- chiamata alla servlet del metodo  findAll -->
+    <form action="<%= request.getContextPath() + "/findAll" %>" method="get">
+      <button type="submit">Mostra tutti gli utenti</button>
+    </form>
+
+   
+    <form action="<%= request.getContextPath() + "/deletePersona" %>" method="post">
+      <label>ID da eliminare:</label>
+      <input type="text" name="id" required />
+      <button type="submit">Elimina</button>
+    </form>
+
+    
+    <form action="<%= request.getContextPath() + "/count" %>" method="get">
+      <button type="submit">Conteggio utenti</button>
+    </form>
+  </div>
+</body>
+</html>

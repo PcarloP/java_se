@@ -1,0 +1,12 @@
+package day_16;
+
+public class ClientiLuce extends Cliente {
+private costoKwh;
+private prezzoKwh;
+	
+	
+	
+	
+	
+	
+}

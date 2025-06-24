@@ -1,0 +1,11 @@
+package it.java.app.modello.impl;
+
+public class ServizioUtenteImpl implements ServizioUtente {
+
+	
+	
+	
+	
+	
+	
+}

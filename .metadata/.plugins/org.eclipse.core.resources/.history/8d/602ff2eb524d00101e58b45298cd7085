@@ -1,0 +1,19 @@
+<h1>Risultati ricerca per cognome</h1>
+
+<c:choose>
+    <c:when test="${not empty persone}">
+        <ul>
+            <c:forEach var="p" items="${persone}">
+                <li>
+                    <strong>Nome:</strong> ${p.nome} |
+                    <strong>Cognome:</strong> ${p.cognome} |
+                    <strong>CF:</strong> ${p.CF} |
+                    <strong>Data di nascita:</strong> ${p.dataNascita}
+                </li>
+            </c:forEach>
+        </ul>
+    </c:when>
+    <c:otherwise>
+        <p>Nessun utente trovato con questo cognome.</p>
+    </c:otherwise>
+</c:choose>

@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ page import="java.util.*, it.promimpresa.anagrafica.modello.Persona" %>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Risultati</title>
+</head>
+<body>
+
+  <h1>Risultati</h1>
+
+  <%
+    List<Persona> persone = (List<Persona>) request.getAttribute("persone");
+    if (persone != null && !persone.isEmpty()) {
+  %>
+      <ul>
+        <% for (Persona p : persone) { %>
+          <li>
+            Nome: <%= p.getNome() %> |
+            Cognome: <%= p.getCognome() %> |
+            CF: <%= p.getCF() %> |
+            Data di nascita: <%= p.getDataNascita() %>
+          </li>
+        <% } %>
+      </ul>
+  <%
+    } else {
+  %>
+      <p>Nessun risultato trovato.</p>
+  <%
+    }
+  %>
+
+</body>
+</html>
+l>

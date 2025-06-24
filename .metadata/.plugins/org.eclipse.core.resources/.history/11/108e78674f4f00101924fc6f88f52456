@@ -1,0 +1,11 @@
+
+<jsp:include page="header.jsp" />
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test HTML</title>
+</head>
+<body>
+  <h1>Ciao, mondo!</h1>
+</body>
+</html>

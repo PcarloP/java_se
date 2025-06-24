@@ -1,0 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="./style.css">
+<title>login</title>
+</head>
+<body>
+
+	<div class="contenitore">
+		<header>
+			<h1>web app</h1>
+		</header>
+		<main>
+			<h1>login</h1>
+
+			<form action="<%=request.getContextPath() + "/salva"%>" method="post">
+
+
+				<div class="DatiUtente">
+
+					<label for="email">Email:</label> 
+					<input type="email" id="email" name="email" required>
+				</div>
+				<div class="DatiUtente">
+
+					<label for="password">password:</label> 
+					<input type="password" id="password" name="password" required>
+				</div>
+				<div>
+					<input type="submit" value="invia">
+				</div>
+
+
+			</form>
+		</main>
+	</div>
+
+
+
+
+</body>
+</html>

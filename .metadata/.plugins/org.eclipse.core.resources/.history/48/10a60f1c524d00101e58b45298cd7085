@@ -1,0 +1,39 @@
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page import="java.util.*, it.promimpresa.anagrafica.modello.Persona" %>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Risultati ricerca per cognome</title>
+    <link rel="stylesheet" href="stile.css"> 
+</head>
+<body>
+    <h1>Risultati ricerca per cognome</h1>
+
+    <%
+        List<Persona> persone = (List<Persona>) request.getAttribute("persone");
+        if (persone != null && !persone.isEmpty()) {
+    %>
+        <ul>
+        <%
+            for (Persona p : persone) {
+        %>
+            <li>
+                <strong>Nome:</strong> <%= p.getNome() %> |
+                <strong>Cognome:</strong> <%= p.getCognome() %> |
+                <strong>CF:</strong> <%= p.getCF() %> |
+                <strong>Data di nascita:</strong> <%= p.getDataNascita() %>
+            </li>
+        <%
+            }
+        %>
+        </ul>
+    <%
+        } else {
+    %>
+        <p>Nessun utente trovato con questo cognome.</p>
+    <%
+        }
+    %>
+</body>
+</html>

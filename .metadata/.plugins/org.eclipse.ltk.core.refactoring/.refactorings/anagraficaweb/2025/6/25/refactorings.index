@@ -1,0 +1,45 @@
+1750169112858	Move 'index.html' to 'WEB-INF'
+1750171347027	Move 'index.html' to 'WebContent'
+1750335503105	Rename package 'day_17.JDBC.persistenza'
+1750335679929	Rename package 'day_17.JDBC.modello'
+1750335868346	Rename package 'day_17.JDBC.controllo'
+1750336140583	Rename package 'day_17.JDBC.persistenza.impl'
+1750338625463	Move 'home2.jsp' to 'WebContent'
+1750339317466	Move 'style2.css' to 'WebContent'
+1750348411074	Move compilation unit
+1750354946386	Delete element
+1750354959756	Delete element
+1750355628258	Delete element
+1750355637036	Delete element
+1750355758611	Move file
+1750359478810	Move 'ricercaId.jsp' to 'WebContent'
+1750362091519	Move 'dashboard.jsp' to 'WebContent'
+1750363307673	Move 'dashboard.css' to 'WebContent'
+1750364071309	Delete element
+1750366963308	Move 'risultaticognome.jsp' to 'WebContent'
+1750404778934	Move file
+1750404781635	Move file
+1750404785321	Move file
+1750408235570	Delete element
+1750409344151	Delete element
+1750410073643	Rename resource 'style.css'
+1750416527279	Rename type 'DemoDispatchServlet'
+1750421140476	Move file
+1750421147840	Move file
+1750421167440	Move file
+1750421263562	Move 'dashboard.jsp' to 'WebContent'
+1750590225332	Rename resource 'home.jsp'
+1750590238594	Rename resource 'body1.jsp'
+1750590306103	Rename resource 'body.jsp'
+1750591641573	Rename resource 'body2.jsp'
+1750592896036	Rename resource 'dashboard.jsp'
+1750592905406	Rename resource 'dashboard.css'
+1750594420049	Rename resource 'body3.jsp'
+1750595159714	Rename resource 'findbynome.jsp'
+1750606889364	Rename resource 'dashboard1.jsp'
+1750606920147	Rename resource 'dashboard1.css'
+1750607511325	Rename resource 'dashboard.jsp'
+1750607530580	Rename resource 'dashboard.css'
+1750608876212	Rename resource 'dashboard1.jsp'
+1750608885765	Rename resource 'dashboard1.css'
+1750614168033	Move 'updatesetter.jsp' to 'WebContent'

@@ -1,0 +1,40 @@
+package day_16;
+
+import java.math.BigDecimal;
+
+public class ClientiLuce extends Cliente {
+
+	private double kwh;
+	private BigDecimal prezzoDaPagare;
+	
+
+	public ClientiLuce() {
+		super();
+	}
+
+	public ClientiLuce(String cf,String nome,String cognome,double kwh) {
+		super();
+	}
+
+	public double getKwh() {
+		return kwh;
+	}
+
+	public void setKwh(double kwh) {
+		this.kwh = kwh;
+	}
+
+	public BigDecimal getPrezzoDaPagare() {
+		return prezzoDaPagare;
+	}
+
+	public void setPrezzoDaPagare(BigDecimal prezzoDaPagare) {
+		this.prezzoDaPagare = prezzoDaPagare;
+	}
+
+	@Override
+	public String toString() {
+		return "ClientiLuce [kwh=" + kwh + ", prezzoDaPagare=" + prezzoDaPagare + "]";
+	}
+
+}

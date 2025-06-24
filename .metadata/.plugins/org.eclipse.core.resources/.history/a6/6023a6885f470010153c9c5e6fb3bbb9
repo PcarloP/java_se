@@ -1,0 +1,19 @@
+package day_16;
+
+/*Una compagnia che vende servizi telefonici ed energetici deve calcolare lefatture dei suoi clienti. 
+ * Si scriverà una classe Clienti che dichiarerà i seguentiattributi: nome ,cognome , prezzoDaPagare. 
+ * Clienti ha quattro figli: ClientiLuce,ClientiGas, ClientiFisso, ClientiMobile. ClientiLuce dichiara i seguenti attributiprivati: costoKwh e Kwh per indicare i chilowatt ora consumati. Se il cliente haconsumato meno di 300Kwh il costo del Kwh è di 0.25per ogni Kwhconsumato. Se il cliente ha consumato più di 300Kwh ma meno di 700 paga0.18 altrimenti paga 0.15.Il costo totale lo fa il prodotto tra il consumo e il prezzo. ClientiGas dichiara iseguenti attributi privati: costoMetroCubo e metroCubi per indicare i metricubi consumati. Lo stesso della classe precedente ma con diversi parametri:se il consumo è sotto i 50 metri cubi il cliente paga 1 per ogni metrocuboconsumato, se compreso tra 50 e 80 paga 0.8 al metro cubo, sopra gli 80 paga0.7 al metro cubo. ClientiFisso dichiara il seguente attirbuto tipo Cliente chepuò essere “STANDARD” “SPECIAL” ”SUPERSPECIAL”, questi valori settanodirettamente la variabile prezzoDaPagare(del padre),rispettivamentea 30, 50,60.
+ * 
+ */
+
+
+public class Clienti {
+
+	
+	
+	
+	
+	
+	
+	
+}

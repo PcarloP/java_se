@@ -1,0 +1,38 @@
+package day_08CodiceISBN;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("inserisci codice isbn valido");
+		String isbn = scanner.nextLine();
+		
+		isbn =isbn.replace("_","");
+		isbn =isbn.replace(" ","");
+		
+		//if(isbn.charAt(isbn.length()) =='x') {
+		if(isbn.charAt(isbn.length()-1).equals('x')) {
+			isbn = isbn.substring(int beginIndex);
+		}
+		
+		int somma = 0;
+		for(int i = 10 ,j = 0; i >= 1; i-- , j++) {
+			somma +=isbn.charAt(j) * i;		
+		
+		if(somma % 11 == 0) {
+			System.out.println("isbm è valido");
+		}else {
+			System.out.println("isbn non valido");
+		}
+		
+		}
+		
+		
+	}
+
+}

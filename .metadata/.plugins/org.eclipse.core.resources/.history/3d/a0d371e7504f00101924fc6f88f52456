@@ -1,0 +1,15 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>sono nel body</title>
+</head>
+<body>
+<jsp:include page="header.jsp" />
+
+  <h1>Ciao, mondo!</h1>
+  
+  
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>dashboard</title>
+</head>
+<body>
+
+ <jsp:include page="header.jsp"/>
+<br>
+
+
+
+<a href="jsp/findbyname.jsp">Vai alla ricerca </a>
+    <h3>ricerca per nome</h3>
+    <br>
+    <h3>ricerca per cognome</h3>
+    <br>
+    <h3>ricerca per id</h3>
+
+
+
+
+
+<br>
+<br>
+<br>
+<jsp:include page="footer.jsp"/>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+package day_16;
+
+public class ClienteFisso {
+	
+	public enum Contratto{STANDARD , SPECIAL ,SUPERSPECIAL};
+	
+	
+	
+	
+	
+
+}

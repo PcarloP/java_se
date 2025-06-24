@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Benvenuto nella mia Web App</title>
+  <style>
+    /* Sfondo sfumato */
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Card centrale */
+    .card {
+      background: white;
+      padding: 40px 60px;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+      font-weight: 700;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+
+    a {
+      display: inline-block;
+      margin: 20px 0;
+      font-size: 1.1rem;
+      color: #764ba2;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #667eea;
+      text-decoration: underline;
+    }
+
+    /* Pulsante stilizzato */
+    button {
+      margin-top: 25px;
+      padding: 14px 40px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      background: linear-gradient(45deg, #764ba2, #667eea);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55), box-shadow 0.3s ease;
+      box-shadow: 0 8px 15px rgba(102, 126, 234, 0.4);
+      user-select: none;
+    }
+
+    button:hover {
+      transform: rotate(360deg);
+      box-shadow: 0 15px 30px rgba(102, 126, 234, 0.7);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Benvenuto nella mia Web App!</h1>
+    <a href="home.jsp">Vai al Login</a>
+    <br />
+    <button onclick="window.location.href='home.jsp'">Login</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" import="java.util.List, it.promimpresa.anagrafica.modello.Persona" %>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Persone da Aggiornare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        table {
+            margin: auto;
+            width: 80%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        a.button {
+            padding: 6px 12px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        a.button:hover {
+            background-color: #0056b3;
+        }
+
+        .back-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Seleziona una persona da aggiornare</h2>
+
+    <%
+        List<Persona> persone = (List<Persona>) request.getAttribute("persone");
+        if (persone != null && !persone.isEmpty()) {
+    %>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Codice Fiscale</th>
+                    <th>Data Nascita</th>
+                    <th>Modifica</th>
+                </tr>
+            </thead>
+            <tbody>
+            <%
+                for (Persona p : persone) {
+            %>
+                <tr>
+                    <td><%= p.getId() %></td>
+                    <td><%= p.getNome() %></td>
+                    <td><%= p.getCognome() %></td>
+                    <td><%= p.getCF() %></td>
+                    <td><%= p.getDataNascita() %></td>
+                    <td>
+                        <a class="button" href="update?id=<%= p.getId() %>">Modifica</a>
+                    </td>
+                </tr>
+            <%
+                }
+            %>
+            </tbody>
+        </table>
+    <%
+        } else {
+    %>
+        <p style="text-align: center;">Nessuna persona trovata.</p>
+    <%
+        }
+    %>
+
+    <div class="back-button">
+        <a class="button" href="dashboard.jsp">⬅ Torna alla Dashboard</a>
+    </div>
+
+</body>
+</html>

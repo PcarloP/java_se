@@ -1,0 +1,13 @@
+package it.java.app.servizo;
+
+
+public interface ServizioUtente {
+
+	
+	Data getUser(int id) throws Exception;
+	
+	
+	
+	
+	
+}

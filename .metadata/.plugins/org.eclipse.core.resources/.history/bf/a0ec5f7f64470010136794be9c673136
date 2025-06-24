@@ -1,0 +1,15 @@
+package day_16;
+
+import java.math.BigDecimal;
+
+public class ClientiLuce extends Cliente {
+	
+private double kwh;
+private BigDecimal prezzoDaPagare;
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Ricerca Nome</title>
+</head>
+<body>
+
+    
+    
+    
+    <!-- Form Ricerca FindByNome con Metodo GET che Chiama la Servlet di Controllo    -->
+		<form action="<%=request.getContextPath() + "/demodispatcher"%>"
+			method="get">
+			<label>Nome:</label> <input type="text" name="nome" required />
+			<button type="submit">Cerca per Nome</button>
+		</form>
+    
+        <%
+        // Prendo la lista di persone passata dalla Servlet
+        List<it.promimpresa.anagrafica.modello.Persona> persone = (List<it.promimpresa.anagrafica.modello.Persona>) request.getAttribute("persone");
+
+        if (persone != null) {
+            if (persone.isEmpty()) {
+    %>
+                <p>Nessun risultato trovato.</p>
+    <%
+            } else {
+    %>
+                <h2>Risultati della ricerca:</h2>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Cognome</th>
+                            <th>Codice Fiscale</th>
+                            <th>Data di Nascita</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            for (it.promimpresa.anagrafica.modello.Persona p : persone) {
+                        %>
+                            <tr>
+                                <td><%= p.getNome() %></td>
+                                <td><%= p.getCognome() %></td>
+                                <td><%= p.getCF() %></td>
+                                <td><%= p.getDataNascita() %></td>
+                            </tr>
+                        <%
+                            }
+                        %>
+                    </tbody>
+                </table>
+    <%
+            }
+        }
+    %>
+    
+    
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<jsp:include page="footer.jsp" />
+</body>
+</html>

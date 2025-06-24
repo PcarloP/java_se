@@ -1,0 +1,22 @@
+package day_16.CalcoloFattura;
+
+public class FatturaController extends Cliente{
+	
+	public static void  CalcoloFattura(Cliente cliente) {
+		
+		if( cliente instanceof ClienteLuce ) {
+			ClienteLuce clienteLuce = (ClienteLuce) cliente ;
+			if(clienteLuce.getKwh() < 300)BigDecimal prezzoKwh
+			   clienteLuce.setPrezzoKwh(new BigDecimal ("0.25")) {
+				
+			}
+		}
+		
+		
+			
+		
+	}
+	
+	
+
+}

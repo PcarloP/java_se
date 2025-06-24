@@ -1,0 +1,71 @@
+package it.promimpresa.anagrafica.controllo;
+
+
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+import it.promimpresa.anagrafica.modello.Persona;
+import it.promimpresa.anagrafica.persistenza.DAOException;
+import it.promimpresa.anagrafica.persistenza.persistenza.impl.PersonaDAOImpl;
+
+/**
+ * Servlet implementation class FindById
+ */
+@WebServlet("/findById")
+public class FindById extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static PersonaDAOImpl personaDAO = new PersonaDAOImpl();
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public FindById() {
+        super();
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String idParam = request.getParameter("id");
+		
+		
+		if (idParam != null) {
+	        try {
+	            int id = Integer.parseInt(idParam);
+	            
+	            System.out.println("=== Find By Id ===");
+	            Persona persona = personaDAO.findById(id); 
+	            System.out.println(persona);
+
+	            // Mostra il risultato al browser
+	            response.setContentType("text/html");
+	            response.getWriter().println("<h1>Utente trovato:</h1>");
+	            response.getWriter().println("<p>" + persona + "</p>");
+
+	        } catch (NumberFormatException e) {
+	            response.getWriter().println("ID non valido.");
+	        } catch (DAOException e) {
+	            response.getWriter().println("Errore durante il recupero della persona.");
+	            e.printStackTrace();
+	        }
+	    } else {
+	        response.getWriter().println("Parametro 'id' mancante nella richiesta.");
+	    }
+	}
+	
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+}

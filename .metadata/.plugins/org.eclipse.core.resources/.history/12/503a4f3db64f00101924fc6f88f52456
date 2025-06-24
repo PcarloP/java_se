@@ -1,0 +1,161 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" import="java.util.List, it.promimpresa.anagrafica.modello.Persona" %>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <title>Aggiorna Persona</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        table {
+            margin: auto;
+            width: 80%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        a.button {
+            padding: 6px 12px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        a.button:hover {
+            background-color: #0056b3;
+        }
+        form.update-form {
+            width: 80%;
+            max-width: 600px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #aaa;
+        }
+        form.update-form label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        form.update-form input[type="text"],
+        form.update-form input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form.update-form button {
+            margin-top: 20px;
+            background-color: #28a745;
+            border: none;
+            padding: 10px 15px;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        form.update-form button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Lista Persone</h2>
+
+<%
+    List<Persona> persone = (List<Persona>) request.getAttribute("persone");
+    Persona personaDaModificare = (Persona) request.getAttribute("persona");
+    
+    if (persone != null && !persone.isEmpty()) {
+%>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Codice Fiscale</th>
+            <th>Data Nascita</th>
+            <th>Modifica</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% for (Persona p : persone) { %>
+        <tr>
+            <td><%= p.getId() %></td>
+            <td><%= p.getNome() %></td>
+            <td><%= p.getCognome() %></td>
+            <td><%= p.getCF() %></td>
+            <td><%= p.getDataNascita() != null ? p.getDataNascita().toLocalDate() : "" %></td>
+            <td>
+                <a class="button" href="<%=request.getContextPath()%>/update?id=<%= p.getId() %>">Modifica</a>
+            </td>
+        </tr>
+    <% } %>
+    </tbody>
+</table>
+<% } else { %>
+    <p style="text-align:center;">Nessuna persona trovata.</p>
+<% } %>
+
+<% if (personaDaModificare != null) { %>
+    <h2>Modifica Persona ID: <%= personaDaModificare.getId() %></h2>
+    <form class="update-form" action="<%=request.getContextPath()%>/update" method="post">
+        <input type="hidden" name="id" value="<%= personaDaModificare.getId() %>" />
+        
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" value="<%= personaDaModificare.getNome() %>" required />
+        
+        <label for="cognome">Cognome:</label>
+        <input type="text" id="cognome" name="cognome" value="<%= personaDaModificare.getCognome() %>" required />
+        
+        <label for="cf">Codice Fiscale:</label>
+        <input type="text" id="cf" name="cf" value="<%= personaDaModificare.getCF() %>" required />
+        
+        <label for="datanascita">Data di Nascita:</label>
+        <input type="date" id="datanascita" name="dataNascita" value="<%= personaDaModificare.getDataNascita() != null ? personaDaModificare.getDataNascita().toLocalDate() : "" %>" />
+        
+        <button type="submit">Salva Modifiche</button>
+    </form>
+<% } %>
+
+
+<hr>
+.button-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007BFF;  /* blu */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button-link:hover {
+    background-color: #0056b3; /* blu più scuro */
+}
+
+
+</body>
+</html>

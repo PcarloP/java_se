@@ -1,0 +1,20 @@
+package day_16.CalcoloFattura;
+
+public class FatturaController extends Cliente{
+	
+	public static CalcoloFattura(Cliente cliente) {
+		
+		if( cliente instanceof ClienteLuce ) {
+			ClienteLuce clienteLuce = (ClienteLuce) cliente ;			
+		}
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+
+}

@@ -1,0 +1,36 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.List" %>
+<%@ page import="it.promimpresa.anagrafica.modello.Persona" %>
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <title>Risultati Ricerca per Nome</title>
+</head>
+<body>
+
+<h1>Risultati ricerca per nome: <%= request.getAttribute("nome") %></h1>
+
+<%
+    List<Persona> persone = (List<Persona>) request.getAttribute("persone");
+    if (persone != null && !persone.isEmpty()) {
+%>
+    <ul>
+    <% for (Persona p : persone) { %>
+        <li><strong>Nome:</strong> <%= p.getNome() %> <strong>Cognome:</strong> <%= p.getCognome() %></li>
+    <% } %>
+    </ul>
+<%
+    } else {
+%>
+    <p>Nessun risultato trovato per "<%= request.getAttribute("nome") %>"</p>
+<%
+    }
+%>
+
+<br>
+<a href="<%= request.getContextPath() + "/jsp/ricercaNome.jsp" %>">Torna alla ricerca</a>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+package day_16.CalcoloFattura;
+
+import java.math.BigDecimal;
+
+public class FatturaController {
+public static void CalcoloFattura(Cliente cliente) {
+
+    // Controllo se il cliente è un ClienteLuce
+    if (cliente instanceof ClienteLuce) {
+        ClienteLuce clienteLuce = (ClienteLuce) cliente;
+
+        // Se ha consumato meno di 300 kWh
+        if (clienteLuce.getKwh() < 300) {
+            // imposto il prezzo per kWh a 0.25 euro
+            clienteLuce.setPrezzoKwh(new BigDecimal("0.25"));
+
+          
+
+        // Se ha consumato tra 300 (compreso) e 700 (escluso) kWh
+        } else if (clienteLuce.getKwh() >= 300 && clienteLuce.getKwh() < 700) {
+            // imposto il prezzo per kWh a 0.18 euro
+            clienteLuce.setPrezzoKwh(new BigDecimal("0.18"));
+
+        // Se ha consumato 700 kWh o più
+        } else {
+            // imposto il prezzo per kWh a 0.15 euro
+            clienteLuce.setPrezzoKwh(new BigDecimal("0.15"));
+        }
+
+        // calcolo il totale da pagare (vale per tutte le fasce)
+        clienteLuce.setPrezzoDaPagare(
+            BigDecimal.valueOf(clienteLuce.getKwh())
+                .multiply(clienteLuce.getPrezzoKwh()));
+    }else if(cliente instanceof ClienteGas) {
+    	ClienteGas clienteGas = (ClienteGas) cliente;
+
+    	
+    	
+    	
+    	
+        // Se ha consumato meno di 300 kWh
+        if (clienteGas.getM3() < 50 ) {
+            // imposto il prezzo per kWh a 0.25 euro
+        	clienteGas.setPrezzoM3(new BigDecimal("0.25"));
+
+          
+
+        // Se ha consumato tra 300 (compreso) e 700 (escluso) kWh
+        } else if (clienteGas.getM3() >= 300 && clienteGas.getM3() < 700) {
+            // imposto il prezzo per kWh a 0.18 euro
+        	clienteGas.setPrezzoM3(new BigDecimal("0.18"));
+
+        // Se ha consumato 700 kWh o più
+        } else {
+            // imposto il prezzo per kWh a 0.15 euro
+        	clienteGas.setPrezzoM3(new BigDecimal("0.15"));
+        }
+
+        // calcolo il totale da pagare (vale per tutte le fasce)
+        clienteGas.setPrezzoDaPagare(
+            BigDecimal.valueOf(clienteGas.getM3())
+                .multiply(clienteGas.getPrezzoM3()));
+    }
+}
+
+}
+

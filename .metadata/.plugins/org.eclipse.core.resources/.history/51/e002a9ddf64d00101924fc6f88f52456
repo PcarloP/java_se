@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Carrello</title>
+</head>
+<body>
+    <h2>Contenuto del Carrello:</h2>
+    <%
+        @SuppressWarnings("unchecked")
+        List<String> carrello = (List<String>) request.getSession().getAttribute("carrello");
+
+        if (carrello != null && !carrello.isEmpty()) {
+            for (String art : carrello) {
+    %>
+                <p><%= art %></p>
+    <%
+            }
+        } else {
+    %>
+            <p>Non ci sono articoli nel carrello.</p>
+    <%
+        }
+    %>
+</body>
+</html>ml>

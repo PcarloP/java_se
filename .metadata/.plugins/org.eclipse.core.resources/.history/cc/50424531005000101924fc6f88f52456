@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Benvenuto</title>
+</head>
+ <body>
+
+
+  <div class="card">
+    <h1>Benvenuto nella mia Web App!</h1>
+    <a href="home.jsp">Vai al Login</a>
+    <br />
+    <button onclick="window.location.href='home.jsp'">Login</button>
+  </div>
+  
+  
+  <br>
+  <br>
+  <br>
+  <hr>
+    <jsp:include page="footer.jsp"/>
+     
+ </body>
+</html>

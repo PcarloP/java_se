@@ -1,0 +1,53 @@
+
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+import it.promimpresa.anagrafica.persistenza.DAOException;
+import it.promimpresa.anagrafica.persistenza.persistenza.impl.PersonaDAOImpl;
+
+/**
+ * Servlet implementation class FindById
+ */
+@WebServlet("/findById")
+public class FindById extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static PersonaDAOImpl personaDAO = new PersonaDAOImpl();
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public FindById() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		int id = request.getParameter(id);
+		
+		try {
+			System.out.println("=== Find By Id ===");
+			persona = personaDAO.findById(id);
+			System.out.println(persona);
+		} catch (DAOException e) {
+			System.out.println("Ops...si è verificato un errore!");
+		}
+				
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+}

@@ -1,0 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<html>
+<head><title>Dashboard</title>
+
+</head>
+<body>
+<h1>Benvenuto nella dashboard</h1>
+
+<h2>Operazioni disponibili:</h2>
+
+<form action="findById" method="get">
+    <label>ID:</label>
+    <input type="text" name="id" required />
+    <button type="submit">Cerca per ID</button>
+</form>
+
+<form action="findByNome" method="get">
+    <label>Nome:</label>
+    <input type="text" name="nome" required />
+    <button type="submit">Cerca per Nome</button>
+</form>
+
+<form action="findByCognome" method="get">
+    <label>Cognome:</label>
+    <input type="text" name="cognome" required />
+    <button type="submit">Cerca per Cognome</button>
+</form>
+
+<form action="findAll" method="get">
+    <button type="submit">Mostra tutti gli utenti</button>
+</form>
+
+<form action="deletePersona" method="post">
+    <label>ID da eliminare:</label>
+    <input type="text" name="id" required />
+    <button type="submit">Elimina</button>
+</form>
+
+<form action="count" method="get">
+    <button type="submit">Conteggio utenti</button>
+</form>
+
+</body>
+</html>
+tml>

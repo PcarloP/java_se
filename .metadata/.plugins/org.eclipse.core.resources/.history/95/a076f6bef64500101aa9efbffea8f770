@@ -1,0 +1,21 @@
+package day_14;
+
+public class VerificaLuhn {
+
+	public static void main(String[] args) {
+
+		System.out.println( "inserisci una seguenza numerica di 16 cifre" );
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

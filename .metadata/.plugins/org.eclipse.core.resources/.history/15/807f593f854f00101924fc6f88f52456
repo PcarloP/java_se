@@ -1,0 +1,60 @@
+package it.promimpresa.anagrafica.controllo;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+import it.promimpresa.anagrafica.modello.Persona;
+import it.promimpresa.anagrafica.persistenza.DAOException;
+import it.promimpresa.anagrafica.persistenza.persistenza.impl.PersonaDAOImpl;
+
+/**
+ * Servlet implementation class FindByAnno
+ */
+@WebServlet("/iindbyanno")
+public class FindByAnno extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static PersonaDAOImpl personaDAO = new PersonaDAOImpl();
+	/**
+     * @see HttpServlet#HttpServlet()
+     */
+    public FindByAnno() {
+        super();
+    
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String annoNascita;
+		int anno = request.getParameter(annoNascita);
+		
+		List<Persona> persone = null;
+		try {
+			System.out.println("=== Find By Anno Nascita ===");
+			persone = personaDAO.findByAnno(annoNascita);
+			System.out.println(persone);
+		} catch (DAOException e) {
+			System.out.println("Ops...si è verificato un errore!");
+		}
+		
+		
+		
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

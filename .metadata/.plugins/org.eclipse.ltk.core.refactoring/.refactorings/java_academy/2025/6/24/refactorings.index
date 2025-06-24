@@ -1,0 +1,28 @@
+1749714528676	Rename type 'Clienti'
+1749716710875	Rename type 'ClientiLuce'
+1749721143876	Move compilation unit
+1749721148323	Move compilation unit
+1749721151926	Move compilation unit
+1749721155261	Move compilation unit
+1749721158589	Move compilation unit
+1749721164086	Move compilation unit
+1749721888244	Rename package 'day_16.Contratto'
+1749752880146	Delete element
+1749754910509	Delete element
+1749755666289	Rename type 'Main'
+1749755964485	Delete element
+1749761327722	Delete element
+1749808258234	Rename package 'day_17.JDBC'
+1749808279504	Rename package 'day_17.Model'
+1749808310101	Rename package 'day_17.Persistence'
+1749808352298	Rename package 'day_17.Control'
+1749817146005	Rename package 'day_17.JDBC.Control'
+1749817164822	Rename package 'day_17.JDBC.Model'
+1749817179110	Rename package 'day_17.JDBC.Persistence'
+1749817280671	Rename package 'day_17.JDB.controller'
+1749818358631	Rename package 'day_17.JDBC.model'
+1749818369531	Rename package 'day_17.JDBC.persistence'
+1749818383099	Rename package 'day_17.JDBC.controller'
+1749820087393	Rename type 'DAOExeption'
+1749828158659	Rename type 'DbUtil'
+1749828242883	Rename compilation unit 'DBUTIL.java'

@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/* Impostazioni di base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #2c3e50;
+    margin: 0;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Titolo risultati */
+h2 {
+    font-size: 1.8em;
+    color: #2980b9;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #2980b9;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Paragrafo del singolo risultato */
+p {
+    font-size: 1.2em;
+    background-color: #e3f2fd;
+    padding: 15px 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    max-width: 700px;
+    word-wrap: break-word;
+}
+
+/* Lista dei risultati multipli */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+/* Singolo risultato nella lista */
+ul li {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    text-align: left;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+ul li:hover {
+    background-color: #f1f8ff;
+    border-color: #2980b9;
+}

@@ -1,0 +1,13 @@
+package day_08CodiceISBN;
+
+public class Main {
+
+	
+	
+	Scanner scanner = new Scanner(System.in);
+	
+	
+	
+	
+	
+}

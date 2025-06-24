@@ -1,0 +1,15 @@
+package day_18.eccezioni;
+
+public class Eccezioni {
+
+	public static void main(String[] args) {
+
+
+		int i =0;
+		String s = srgs[0];
+		
+		
+		
+	}
+
+}

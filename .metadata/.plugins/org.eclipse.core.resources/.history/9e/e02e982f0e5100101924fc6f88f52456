@@ -1,0 +1,12 @@
+package it.java.app.modello;
+
+public class Support {
+
+	private String url;
+	private String text;
+	
+	
+	
+	
+	
+}

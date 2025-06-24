@@ -1,0 +1,13 @@
+INDEX VERSION 1.134
+C:\Users\Standard\corso_java\workspace-spring-tools-for-eclipse-4.30.0.RELEASE\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2373857697.index
+\anagraficaweb\src\main\java
+C:\Users\Standard\corso_java\workspace-spring-tools-for-eclipse-4.30.0.RELEASE\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2589531721.index
+\anagraficaweb\src\main\java
+C:\Users\Standard\corso_java\workspace-spring-tools-for-eclipse-4.30.0.RELEASE\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3484354936.index
+\anagraficaweb\src\main\java
+C:\Users\Standard\corso_java\workspace-spring-tools-for-eclipse-4.30.0.RELEASE\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4127824105.index
+\anagraficawebstudio\src\main\java
+C:\Users\Standard\corso_java\workspace-spring-tools-for-eclipse-4.30.0.RELEASE\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3248015294.index
+\anagraficaweb\src\main\java
+C:\Users\Standard\corso_java\workspace-spring-tools-for-eclipse-4.30.0.RELEASE\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1822650723.index
+\anagraficawebstudio\src\main\java

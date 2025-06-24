@@ -1,0 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Seleziona Persona da Aggiornare</title>
+</head>
+<body>
+    <h2>Inserisci l'ID della persona da aggiornare</h2>
+    
+    <form action="update" method="get">
+        <label>ID Persona:</label>
+        <input type="text" name="id" required />
+        <button type="submit">Modifica</button>
+    </form>
+    
+    <div class="back-button-container">
+        <a href="dashboard.jsp">⬅ Torna alla Dashboard</a>
+    </div>
+</body>
+</html>

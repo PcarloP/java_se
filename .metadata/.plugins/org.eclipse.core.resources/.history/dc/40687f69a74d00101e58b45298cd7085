@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/dashboard.css">
+</head>
+
+
+<body>
+	<h1>Benvenuto nella dashboard</h1>
+
+	<h2>Operazioni disponibili:</h2>
+    
+    <!-- chiamata alla servlet del metodo finByid  con metodo GET -->
+	<form action="<%=request.getContextPath() + "/findById"%>" method="get">
+		<label>ID:</label> <input type="text" name="id" required />
+		<button type="submit">Cerca per ID</button>
+	</form>
+    <!-- chiamata alla servlet del metodo finByNome con metodo GET -->
+	<form action="<%=request.getContextPath() + "/findByNome"%>"
+		method="get">
+		<label>Nome:</label> <input type="text" name="nome" required />
+		<button type="submit">Cerca per Nome</button>
+	</form>
+     <!-- chiamata alla servlet del metodo finByCognome con metodo GET -->
+	<form action="<%=request.getContextPath() + "/findByCogome"%>" method="get">
+		<label>Cognome:</label> <input type="text" name="cognome" required />
+		<button type="submit">Cerca per Cognome</button>
+	</form>
+findAll
+	<form action="<%=request.getContextPath() + "/findByNome"%>" method="get">
+		<button type="submit">Mostra tutti gli utenti</button>
+	</form>
+
+	<form action="deletePersona" method="post">
+		<label>ID da eliminare:</label> <input type="text" name="id" required />
+		<button type="submit">Elimina</button>
+	</form>
+
+	<form action="count" method="get">
+		<button type="submit">Conteggio utenti</button>
+	</form>
+
+</body>
+</html>

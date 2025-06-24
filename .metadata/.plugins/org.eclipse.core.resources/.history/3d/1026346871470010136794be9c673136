@@ -1,0 +1,12 @@
+package day_16.Contratto;
+
+public class ClienteFisso extends Cliente  {
+	
+	//public enum Contratto{STANDARD , SPECIAL ,SUPERSPECIAL};
+	
+	private ContrattoFisso contratto;
+	
+	
+	
+
+}

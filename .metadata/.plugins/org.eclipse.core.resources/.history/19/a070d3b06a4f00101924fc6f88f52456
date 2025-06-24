@@ -1,0 +1,225 @@
+package it.promimpresa.anagrafica.controllo;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+import it.promimpresa.anagrafica.modello.Persona;
+import it.promimpresa.anagrafica.persistenza.DAOException;
+import it.promimpresa.anagrafica.persistenza.persistenza.impl.PersonaDAOImpl;
+
+
+
+/**
+ *
+ *
+ * Servlet implementation class DispatcherDemo
+ */
+
+@WebServlet("/demodispatcher")
+public class DemoDispatcherServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	PersonaDAOImpl personaDAO = new PersonaDAOImpl();
+
+	/**
+	 *
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public DemoDispatcherServlet() {
+		super();
+	}
+
+	/*
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 * response)
+	 *
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+//			throws ServletException, IOException {
+//		// fase 1 esempio di uso del include
+//		// inoltra la richiesta a una pagine JSP e poi per includere l'output
+//		// proveniente da un'altra risorsa
+//
+//		//request.getServletContext().getRequestDispatcher("/jsp/header.jsp").include(request, response);
+//		String pagina = request.getParameter("pagina");
+//
+//		if (pagina != null && !pagina.trim().equals("")) {
+//			if (pagina.equals("1")) {
+//				request.getServletContext().getRequestDispatcher("/jsp/login.jsp").include(request, response);
+//				
+//							
+//				
+//				
+//			} else if (pagina.equals("2")) {
+//				request.getServletContext().getRequestDispatcher("/jsp/dashboard.jsp").include(request, response);
+//				
+//			} else {
+//				request.getServletContext().getRequestDispatcher("/jsp/findbyname.jsp").include(request, response);
+//
+//				String nome = request.getParameter("nome");
+//				
+//				List<Persona> persone = null;
+//				try {
+//					System.out.println("=== Find By Nome ===");
+//					persone = personaDAO.findByNome(nome);
+//					System.out.println(persone);
+//					
+//					response.getWriter().println("<h1>Risultati Ricerca Per Nome: " + nome + "</h1>");
+//					
+//					request.setAttribute("persone", persone);			
+//			        RequestDispatcher dispatcher = request.getRequestDispatcher("/findbyname.jsp");
+//			        dispatcher.forward(request, response);
+//			        
+//				} catch (DAOException e) {
+//					System.out.println("Ops...si è verificato un errore!");
+//				}
+//			
+//			
+//			
+//			
+//			
+//			
+//			}
+//			
+//		} else {
+//			request.getServletContext().getRequestDispatcher("/jsp/home.jsp").include(request, response);
+//			
+			
+
+	    
+	    String pagina = request.getParameter("pagina");
+	    
+	    if (pagina == null || pagina.trim().isEmpty()) {
+	        // Se pagina non definita, mostra home.jsp
+	        request.getRequestDispatcher("/jsp/home.jsp").forward(request, response);
+	        return;
+	    }
+	    
+	    switch (pagina) {
+	        case "1":
+	            // Login page
+	            request.getRequestDispatcher("/jsp/login.jsp").forward(request, response);
+	            break;
+	        
+	        case "2":
+	            // Dashboard page
+	            request.getRequestDispatcher("/jsp/dashboard.jsp").forward(request, response);
+	            break;
+	        
+	        default:
+	            // Assume pagina di ricerca per nome
+	            String nome = request.getParameter("nome");
+	            if (nome != null && !nome.trim().isEmpty()) {
+	                try {
+	                    System.out.println("=== Find By Nome ===");
+	                    List<Persona> persone = personaDAO.findByNome(nome);
+	                    System.out.println(persone);
+
+	                    // Passa dati alla JSP senza scrivere direttamente nella risposta
+	                    request.setAttribute("persone", persone);
+	                    request.setAttribute("nomeCercato", nome);
+
+	                    // Mostra risultati in findbyname.jsp
+	                    request.getRequestDispatcher("/jsp/findbyname.jsp").forward(request, response);
+
+	                } catch (DAOException e) {
+	                    System.out.println("Ops...si è verificato un errore!");
+	                    response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Errore nella ricerca");
+	                }
+	            } else {
+	                // Se non c’è nome, mostra solo la pagina di ricerca senza risultati
+	                request.getRequestDispatcher("/jsp/findbyname.jsp").forward(request, response);
+	            }
+	            break;
+	    }
+	}
+			
+			
+				
+		//request.getServletContext().getRequestDispatcher("/jsp/footer.jsp").include(request, response);
+		// esempio uso forward noto che l' URL non cambia perche' l'indirizzamento
+		// avviene a livello di server
+		 //request.getServletContext().getRequestDispatcher("/jsp/home.jsp").forward(request, response);		 
+		 //Esempio redirect :
+		 //response.sendRedirect("https://www.google.it");		 
+		// request.getServletContext().getRequestDispatcher("/jsp/body.jsp").forward(request, response);	 		
+//		 @SuppressWarnings("unchecked")
+//		 List<String> carrello = (List<String>) request.getSession().getAttribute("carrello");
+//		 
+//			if (carrello == null) {				
+//				carrello = new ArrayList<String>();				
+//				request.getSession().setAttribute("carrello", carrello);				
+//			}	
+//			
+//			String articolo = request.getParameter("articolo");
+//			
+//			if (articolo != null && !articolo.trim().equals("")) {
+//				carrello.add(articolo);
+//				
+//			}		request.getServletContext().getRequestDispatcher("/jsp/bodycarrello.jsp").include(request, response);		
+            
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+	/**
+	 *
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String codiceFiscale = request.getParameter("codiceFiscale");
+		String name = request.getParameter("name"); 
+		String cognome = request.getParameter("cognome"); 	
+		String dataNascita = request.getParameter("dataNascita");
+		
+		
+		try {
+
+			System.out.println("=== Save ===");
+			Persona persona = new Persona();
+			persona.setCF(codiceFiscale);
+			persona.setNome(name);
+			persona.setCognome(cognome);
+			persona.setDataNascita(LocalDateTime.parse(dataNascita));
+			personaDAO.save(persona);
+			request.setAttribute("utente", persona); 
+			
+			
+		    RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/dashboard.jsp");
+		    dispatcher.forward(request, response);
+
+		} catch (DAOException e) {
+			System.out.println("Ops...si è verificato un errore!");
+		}
+		
+		
+		
+		
+		
+		
+	}
+}

@@ -1,0 +1,28 @@
+package day_16.CalcoloFattura;
+
+public class ClienteMobile extends Cliente {
+
+	private int giga ;
+
+	public ClienteMobile() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public ClienteMobile(String cf, String nome, String cognome) {
+		super(cf, nome, cognome);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

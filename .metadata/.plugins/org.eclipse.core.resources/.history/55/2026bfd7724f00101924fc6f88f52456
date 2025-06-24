@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Ricerca Nome</title>
+</head>
+<body>
+
+    
+    
+    
+    <!-- Form Ricerca FindByNome con Metodo GET che Chiama la Servlet di Controllo    -->
+		<form action="<%=request.getContextPath() + "/demodispatcher"%>"
+			method="get">
+			<label>Nome:</label> <input type="text" name="nome" required />
+			<button type="submit">Cerca per Nome</button>
+		</form>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<h1>Risultati Ricerca per nome: ${nome}</h1>
+
+<c:if test="${not empty persone}">
+  <ul>
+    <c:forEach var="persona" items="${persone}">
+      <li>${persona.nome} ${persona.cognome} - CF: ${persona.cf}</li>
+    </c:forEach>
+  </ul>
+</c:if>
+
+<c:if test="${empty persone}">
+  <p>Nessuna persona trovata.</p>
+</c:if>
+     
+    
+    
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<jsp:include page="footer.jsp" />
+</body>
+</html>
