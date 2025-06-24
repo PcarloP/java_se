@@ -1,0 +1,86 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	import="java.util.List,it.promimpresa.anagrafica.modello.Persona"%>
+<!DOCTYPE html>
+
+
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<title>Risultati</title>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/content.css" />
+</head>
+
+
+<body>
+	<%
+	String messaggio = (String) request.getAttribute("messaggio");
+	if (messaggio != null) {
+	%>
+	<p style="color: green; font-weight: bold;"><%=messaggio%></p>
+	<%
+	}
+	%>
+	<%
+	Persona persona = (Persona) request.getAttribute("persona");
+	if (persona != null) {
+	%>
+	<h2>Risultato ricerca :</h2>
+	<p>
+		Nome:
+		<%=persona.getNome()%>
+		| Cognome:
+		<%=persona.getCognome()%>
+		| CF:
+		<%=persona.getCF()%>
+		| Data di nascita:
+		<%=persona.getDataNascita()%>
+	</p>
+	<%
+	} else {
+	List<Persona> persone = (List<Persona>) request.getAttribute("persone");
+	if (persone != null && !persone.isEmpty()) {
+	%>
+	<h2>Risultati della Ricerca:</h2>
+	<ul>
+		<%
+		for (Persona p : persone) {
+		%>
+		<li>Nome: <%=p.getNome()%> | Cognome: <%=p.getCognome()%> | CF: <%=p.getCF()%>
+			| Data di nascita: <%=p.getDataNascita()%>
+		</li>
+		<%
+		}
+		%>
+	</ul>
+	<%
+	} else {
+	%>
+	<p>Nessun risultato trovato.</p>
+	<%
+	}
+	}
+	%>
+   <!-- Tipo Ricerca Per Anno -->
+	<%
+	String tipoRicerca = (String) request.getAttribute("tipoRicerca");
+	if (tipoRicerca != null) {
+	%>
+	<p>
+		<strong><%=tipoRicerca%></strong>
+	</p>
+	<%
+	}
+	%>
+
+	<hr />
+
+	<div class="back-button-container">
+		<a href="<%=request.getContextPath()%>/dashboard.jsp"
+			class="back-button">⬅ Torna alla Dashboard</a>
+	</div>
+
+<footer>
+	<p>&copy; 2025 My Application. All rights reserved.</p>
+</footer>
+</body>
+</html>
