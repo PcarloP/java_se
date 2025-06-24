@@ -1,0 +1,34 @@
+Eclipse metadata folders
+.metadata/
+*.log
+*.index
+*.xmi
+
+# Eclipse plugins (plugin specific cache/index files)
+*.plugins/
+
+# Maven / Java build output
+target/
+bin/
+
+# Eclipse project files
+.project
+.classpath
+.settings/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore Java Academy folder if not needed
+java_academy/
+
+# Ignore files from your workspace's parent folders
+../.metadata/
+
+# Ignore any log files anywhere
+*.log
+
+# Ignore IDE specific caches and temp files
+*.tmp
+*.bak
